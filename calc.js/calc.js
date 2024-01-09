@@ -23,7 +23,7 @@ function calc(firstNum = 1, secondNum = 1, mathOperator) {
             answer = firstNum / secondNum;
             break;
         
-    }; console.log(typeof secondNum === 'string'); return answer;
+    }; return answer;
 }
 
 console.log(calc(10,5,'+')) //15
