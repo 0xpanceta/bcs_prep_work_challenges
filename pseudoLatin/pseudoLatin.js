@@ -1,7 +1,7 @@
 //I totally had to cheat and use chatGPT for help with this one
 
 function makeLatin (sentence) {
-    //Sets variable to say whether a character is punctuation or not
+    //Sets arrow function to say whether a character is punctuation or not
     const isPunctuation = char => ',.;:!?'.includes(char);
     //splits sentence into array of words, and starts the function using arrow function, using map so it'll be done on each word.
     let latinArray = sentence.split(' ').map(word => {
