@@ -26,10 +26,6 @@ function vendingMachine (money, snack) {
     if (typeof money !== `number` || isNaN(money) || money < 0) {
         return "Please input valid number"
     }
-    // see if snack is valid
-    if (snack != 1 && snack != 2 && snack != 3 && snack != 4) {
-        return "Sorry, selected snack is not available"
-    }
     // create snack list (list of objects, with name and price values in their properties)
     const SnackList = {
         1: {
@@ -49,15 +45,22 @@ function vendingMachine (money, snack) {
             snackPrice: 3.5
         }
     };
+    // see if snack is valid
+    if (!SnackList.hasOwnProperty(snack)) {
+        return "Sorry, selected snack is not available"
+    };
     // check if you have enough money
     if (money < SnackList[snack].snackPrice) {
         return "Sorry, you have to insert more coins"
     };
     // calculate change
     let change  = money - SnackList[snack].snackPrice;
-    console.log(SnackList[snack])
+    //console.log(SnackList[snack])
     // give answer using snack name and change
     return `Your ${SnackList[snack].snackName.toLowerCase()} has been served, and your change is ${change}€`    
 }
 
 console.log(vendingMachine(300, 2))
+console.log(vendingMachine(0, 1))
+console.log(vendingMachine(0, 50))
+console.log(vendingMachine(100, 50))
